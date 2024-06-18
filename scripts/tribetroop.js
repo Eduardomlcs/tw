@@ -29,27 +29,3 @@ function main() {
 }   
 
 main();
-
-
-
-        $.getAll(linksODSTotal, (i, data) => {
-            if ($(data).find(".lit-item")[3] != undefined) {
-                temp = $(data).find(".lit-item")
-                x = temp[3].innerText;
-                console.log(x);
-                if (x.indexOf(" Mil.") > -1) {
-                    x = x.replace(" Mil.", "");
-                    x = x.replace(",", "");
-                    x = parseInt(x) * 10000;
-                    x=x.toString();
-                }
-                ODSTotalperPlayer.push(x.replace(/\./g, ','));
-            }
-            else {
-                ODSTotalperPlayer.push("0");
-            }
-
-        },
-            (error) => {
-                console.error(error);
-            });
