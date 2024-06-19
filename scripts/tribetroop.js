@@ -62,6 +62,8 @@ function main() {
         links.push(link);
     }
     $.getAll(links, (i, data) => {
+       
+        console.log(i)
         let table = $(data).find(".vis.w100");
         console.log(table);
         let rows = table.find("tr");
@@ -105,7 +107,7 @@ function main() {
             let incomingNoble = $(incomingCells[12]).text();
             let incomingMilicia = $(incomingCells[13]).text();
 
-            console.log(incomingVillage, incomingSpear, incomingSword, incomingAxe, incomingSpy, incomingLcav, incomingHeavy, incomingRam, incomingCat, incomingPaladin, incomingNoble, incomingMilicia);
+            console.log(incomingSpear, incomingSword, incomingAxe, incomingSpy, incomingLcav, incomingHeavy, incomingRam, incomingCat, incomingPaladin, incomingNoble, incomingMilicia);
         }
 
     });
