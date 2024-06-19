@@ -62,8 +62,8 @@ function main() {
         links.push(link);
     }
     $.getAll(links, (i, data) => {
-       
-        console.log(i)
+        let player = $(data).find(".input-nicer").find(":selected").text();
+        console.log(player);
         let table = $(data).find(".vis.w100");
         console.log(table);
         let rows = table.find("tr");
