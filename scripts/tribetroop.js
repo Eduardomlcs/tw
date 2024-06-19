@@ -63,7 +63,7 @@ function main() {
         links.push(link);
     }
     $.getAll(links, (i, data) => {
-        let troops = $(data).find("td");
+        let troops = $(data).find(".vis");
         console.log(troops);
     });
     console.log(links);
