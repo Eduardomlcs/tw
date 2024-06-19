@@ -69,6 +69,8 @@ function main() {
         let rows = table.find("tr");
         rows = rows.slice(1);
         console.log(rows);
+
+        let isArcher = 0;
         for (let i =0; i < rows.length; i+=2) {
             let cells = $(rows[i]).find("td");
             
@@ -79,16 +81,17 @@ function main() {
             if(rows.length > 15){
                 let archer = $(cells[5]).text().trim();
                 let mountedArcher = $(cells[8]).text().trim();
+                isArcher = 1;
             }
-            let spy = $(cells[6]).text().trim();
-            let lcav = $(cells[7]).text().trim();
-            let heavy = $(cells[9]).text().trim();
-            let ram = $(cells[10]).text().trim();
-            let cat = $(cells[11]).text().trim();
-            let paladin = $(cells[12]).text().trim();
-            let noble = $(cells[13]).text().trim();
-            let milicia = $(cells[14]).text().trim();
-            let incoming = $(cells[15]).text().trim();
+            let spy = $(cells[6-isArcher]).text().trim();
+            let lcav = $(cells[7-isArcher]).text().trim();
+            let heavy = $(cells[9-isArcher*2]).text().trim();
+            let ram = $(cells[10-isArcher*2]).text().trim();
+            let cat = $(cells[11-isArcher*2]).text().trim();
+            let paladin = $(cells[12-isArcher*2]).text().trim();
+            let noble = $(cells[13-isArcher*2]).text().trim();
+            let milicia = $(cells[14-isArcher*2]).text().trim();
+            let incoming = $(cells[15-isArcher*2]).text().trim();
             console.log(village, spear, sword, axe, spy, lcav, heavy, ram, cat, paladin, noble, milicia, incoming);
             let incomingCells = $(rows[i+1]).find("td");
             let incomingSpear = $(incomingCells[1]).text().trim();
@@ -98,18 +101,48 @@ function main() {
                 let incomingArcher = $(incomingCells[4]).text().trim();
                 let incomingMountedArcher = $(incomingCells[7]).text().trim();
             }
-            let incomingSpy = $(incomingCells[5]).text().trim();
-            let incomingLcav = $(incomingCells[6]).text().trim();
-            let incomingHeavy = $(incomingCells[8]).text().trim();
-            let incomingRam = $(incomingCells[9]).text().trim();
-            let incomingCat = $(incomingCells[10]).text().trim();
-            let incomingPaladin = $(incomingCells[11]).text().trim();
-            let incomingNoble = $(incomingCells[12]).text().trim();
-            let incomingMilicia = $(incomingCells[13]).text().trim();
+            let incomingSpy = $(incomingCells[5-isArcher]).text().trim();
+            let incomingLcav = $(incomingCells[6-isArcher]).text().trim();
+            let incomingHeavy = $(incomingCells[8-isArcher*2]).text().trim();
+            let incomingRam = $(incomingCells[9-isArcher*2]).text().trim();
+            let incomingCat = $(incomingCells[10-isArcher*2]).text().trim();
+            let incomingPaladin = $(incomingCells[11-isArcher*2]).text().trim();
+            let incomingNoble = $(incomingCells[12-isArcher*2]).text().trim();
+            let incomingMilicia = $(incomingCells[13-isArcher*2]).text().trim();
 
             console.log(incomingSpear, incomingSword, incomingAxe, incomingSpy, incomingLcav, incomingHeavy, incomingRam, incomingCat, incomingPaladin, incomingNoble, incomingMilicia);
         }
-
+        let json = [
+            {
+                "player": player,
+                "village": village,
+                "spear": spear,
+                "sword": sword,
+                "axe": axe,
+                "spy": spy,
+                "lcav": lcav,
+                "heavy": heavy,
+                "ram": ram,
+                "cat": cat,
+                "paladin": paladin,
+                "noble": noble,
+                "milicia": milicia,
+                "incoming": incoming,
+                "incomingSpear": incomingSpear,
+                "incomingSword": incomingSword,
+                "incomingAxe": incomingAxe,
+                "incomingSpy": incomingSpy,
+                "incomingLcav": incomingLcav,
+                "incomingHeavy": incomingHeavy,
+                "incomingRam": incomingRam,
+                "incomingCat": incomingCat,
+                "incomingPaladin": incomingPaladin,
+                "incomingNoble": incomingNoble,
+                "incomingMilicia": incomingMilicia
+            }
+        ];
+        json = JSON.parse(json);
+        console.log(json);
     });
 }   
 
