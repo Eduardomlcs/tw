@@ -57,7 +57,6 @@ $.getAll = function (
 function main() {
     let currentServer = getCurrentServer();
     let links = [];
-    console.log("Current server: ", currentServer);
     for (let playerId of playerIds) {
         let link = getTroopLink(currentServer, playerId);
         links.push(link);
@@ -66,9 +65,50 @@ function main() {
         let table = $(data).find(".vis.w100");
         console.log(table);
         let rows = table.find("tr");
+        rows = rows.slice(1);
         console.log(rows);
+        for (let i =1; i < rows.length; i+=2) {
+            let cells = $(row[i]).find("td");
+            
+            let village = $(cells[0]).text();
+            let spear = $(cells[2]).text();
+            let sword = $(cells[3]).text();
+            let axe = $(cells[4]).text();
+            if(rows.length > 15){
+                let archer = $(cells[5]).text();
+                let mountedArcher = $(cells[8]).text();
+            }
+            let spy = $(cells[6]).text();
+            let lcav = $(cells[7]).text();
+            let heavy = $(cells[9]).text();
+            let ram = $(cells[10]).text();
+            let cat = $(cells[11]).text();
+            let paladin = $(cells[12]).text();
+            let noble = $(cells[13]).text();
+            let milicia = $(cells[14]).text();
+            let incoming = $(cells[15]).text();
+            console.log(village, spear, sword, axe, spy, lcav, heavy, ram, cat, paladin, noble, milicia, incoming);
+            let incomingCells = $(row[i+1]).find("td");
+            let incomingSpear = $(incomingCells[1]).text();
+            let incomingSword = $(incomingCells[2]).text();
+            let incomingAxe = $(incomingCells[3]).text();
+            if(rows.length > 15){
+                let incomingArcher = $(incomingCells[4]).text();
+                let incomingMountedArcher = $(incomingCells[7]).text();
+            }
+            let incomingSpy = $(incomingCells[5]).text();
+            let incomingLcav = $(incomingCells[6]).text();
+            let incomingHeavy = $(incomingCells[8]).text();
+            let incomingRam = $(incomingCells[9]).text();
+            let incomingCat = $(incomingCells[10]).text();
+            let incomingPaladin = $(incomingCells[11]).text();
+            let incomingNoble = $(incomingCells[12]).text();
+            let incomingMilicia = $(incomingCells[13]).text();
+
+            console.log(incomingVillage, incomingSpear, incomingSword, incomingAxe, incomingSpy, incomingLcav, incomingHeavy, incomingRam, incomingCat, incomingPaladin, incomingNoble, incomingMilicia);
+        }
+
     });
-    console.log(links);
 }   
 
 main();
