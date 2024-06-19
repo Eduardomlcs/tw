@@ -67,7 +67,7 @@ function main() {
         let rows = table.find("tr");
         rows = rows.slice(1);
         console.log(rows);
-        for (let i =1; i < rows.length; i+=2) {
+        for (let i =0; i < rows.length; i+=2) {
             let cells = $(row[i]).find("td");
             
             let village = $(cells[0]).text();
