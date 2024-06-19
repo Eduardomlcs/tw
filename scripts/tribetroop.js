@@ -63,8 +63,10 @@ function main() {
         links.push(link);
     }
     $.getAll(links, (i, data) => {
-        let troops = $(data).find(".vis.w100");
-        console.log(troops);
+        let table = $(data).find(".vis.w100");
+        console.log(table);
+        let rows = table.find("tr");
+        console.log(rows);
     });
     console.log(links);
 }   
