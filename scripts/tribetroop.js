@@ -68,7 +68,7 @@ function main() {
         rows = rows.slice(1);
         console.log(rows);
         for (let i =0; i < rows.length; i+=2) {
-            let cells = $(row[i]).find("td");
+            let cells = $(rows[i]).find("td");
             
             let village = $(cells[0]).text();
             let spear = $(cells[2]).text();
@@ -88,7 +88,7 @@ function main() {
             let milicia = $(cells[14]).text();
             let incoming = $(cells[15]).text();
             console.log(village, spear, sword, axe, spy, lcav, heavy, ram, cat, paladin, noble, milicia, incoming);
-            let incomingCells = $(row[i+1]).find("td");
+            let incomingCells = $(rows[i+1]).find("td");
             let incomingSpear = $(incomingCells[1]).text();
             let incomingSword = $(incomingCells[2]).text();
             let incomingAxe = $(incomingCells[3]).text();
